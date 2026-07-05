@@ -135,23 +135,25 @@ Password: sleepdemo
 
 For a real study, replace this with your own participants in the `participants` table.
 
-### 4. Create `.env.local`
+### 4. Configure the database
 
-Copy `.env.example` to `.env.local`:
+Open:
 
-```bash
-cp .env.example .env.local
+```text
+config/database.js
 ```
 
-Then set:
+Set the data provider to Supabase and enter your project details:
 
-```env
-NEXT_PUBLIC_CSD_DATA_PROVIDER=supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```javascript
+export const database = {
+    dataProvider: "supabase",
+    supabaseUrl: "https://your-project.supabase.co",
+    supabasePublishableKey: "your-supabase-publishable-key",
+}
 ```
 
-Restart the development server after changing environment variables.
+Save the file and restart the development server.
 
 ### 5. Test the connection
 
@@ -221,7 +223,7 @@ Recommended production improvements include:
 The diary questions are defined in:
 
 ```text
-library/diarySchema.js
+config/diarySchema.js
 ```
 
 Each schema item controls the question label, direction, input type and validation limits. The diary workflow reads this schema and renders the correct input component through `QuestionLoader.jsx`.
