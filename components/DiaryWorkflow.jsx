@@ -120,7 +120,7 @@ export default function DiaryWorkflow() {
                     <div className="text-center">
                         <p className="text-sm font-bold uppercase tracking-[0.25em] text-indigo-600">{demoStudy.code}</p>
                         <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950">{demoStudy.title}</h2>
-                        <p className="mx-auto mt-3 max-w-xl text-slate-600">Enter the participant credentials to continue to today's diary submission.</p>
+                        <p className="mx-auto mt-3 max-w-xl text-slate-600">Enter the participant credentials to continue to todays diary submission.</p>
                     </div>
 
                     <form onSubmit={handleLogin} className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-6">
