@@ -1,4 +1,4 @@
-export const schematic = [
+export const diarySchema = [
     {
         id: "bedtime",
         label: "What time did you start trying to sleep?",

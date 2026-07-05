@@ -7,7 +7,6 @@ create table if not exists participants (
     id uuid primary key default gen_random_uuid(),
     username text unique not null,
     password text not null,
-    study_code text not null,
     active boolean not null default true,
     created_at timestamptz not null default now()
 );
@@ -24,8 +23,8 @@ create table if not exists submissions (
 
 -- Example participant for initial testing.
 -- Change or remove this before using the app in a real study.
-insert into participants (username, password, study_code)
-values ('participant01', 'sleepdemo', 'CSD-DEMO-2026')
+insert into participants (username, password)
+values ('participant01', 'sleepdemo')
 on conflict (username) do nothing;
 
 -- Basic read/insert policies for browser-based Supabase use.

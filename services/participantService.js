@@ -8,7 +8,7 @@
 // and provide the Supabase URL and anon key in .env.local.
 //
 // The app only expects authenticateParticipant() to return either:
-// - a participant object with at least { id, username, studyCode }
+// - a participant object with at least { id, username}
 // - null when credentials are invalid
 
 import { isSupabaseEnabled } from "@/lib/config"
@@ -19,7 +19,6 @@ const localParticipants = [
         id: "participant-001",
         username: "participant01",
         password: "sleepdemo",
-        studyCode: "CSD-DEMO-2026",
     },
 ]
 
@@ -29,7 +28,6 @@ function toParticipantRecord(record) {
     return {
         id: record.id,
         username: record.username,
-        studyCode: record.study_code ?? record.studyCode,
     }
 }
 
@@ -38,7 +36,7 @@ async function authenticateWithSupabase(username, password) {
 
     const { data, error } = await supabase
         .from("participants")
-        .select("id, username, study_code")
+        .select("id, username")
         .eq("username", username.trim())
         .eq("password", password.trim())
         .eq("active", true)

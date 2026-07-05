@@ -1,7 +1,7 @@
 "use client"
 
 import {useState} from "react"
-import {schematic} from "@/library/schematic"
+import {diarySchema} from "@/config/diarySchema"
 import QuestionLoader from "@/components/QuestionLoader"
 import {validateAnswer, validateEntry} from "@/library/validation"
 import {demoStudy} from "@/library/demoParticipants"
@@ -19,9 +19,9 @@ export default function DiaryWorkflow() {
     const [error, setError] = useState("")
     const [completion, setCompletion] = useState(false)
 
-    const question = schematic[questionIndex]
+    const question = diarySchema[questionIndex]
     const questionAnswer = submission[question?.id] ?? ""
-    const progress = Math.round(((questionIndex + 1) / schematic.length) * 100)
+    const progress = Math.round(((questionIndex + 1) / diarySchema.length) * 100)
 
     async function handleLogin(event) {
         event.preventDefault()
@@ -70,7 +70,7 @@ export default function DiaryWorkflow() {
             return
         }
 
-        if (questionIndex < schematic.length - 1) {
+        if (questionIndex < diarySchema.length - 1) {
             setQuestionIndex((prev) => prev + 1)
             setError("")
             return
@@ -170,7 +170,7 @@ export default function DiaryWorkflow() {
             <div className="rounded-[2rem] border border-white/70 bg-white/85 p-6 shadow-2xl shadow-indigo-950/10 backdrop-blur sm:p-8">
                 <div className="mb-8">
                     <div className="mb-3 flex items-center justify-between text-sm font-semibold text-slate-500">
-                        <span>Question {questionIndex + 1} of {schematic.length}</span>
+                        <span>Question {questionIndex + 1} of {diarySchema.length}</span>
                         <span>{progress}%</span>
                     </div>
                     <div className="h-2 overflow-hidden rounded-full bg-slate-100">
@@ -192,7 +192,7 @@ export default function DiaryWorkflow() {
                         ← Back
                     </button>
                     <button onClick={handleNext} className="rounded-2xl bg-slate-950 px-5 py-3 font-semibold text-white shadow-lg shadow-slate-950/15 transition hover:-translate-y-0.5 hover:bg-indigo-700">
-                        {questionIndex === schematic.length - 1 ? "Submit entry" : "Next →"}
+                        {questionIndex === diarySchema.length - 1 ? "Submit entry" : "Next →"}
                     </button>
                 </div>
             </div>

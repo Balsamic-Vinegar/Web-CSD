@@ -24,7 +24,7 @@ components/
   inputs/
   ui/
 library/
-  schematic.js
+  diarySchema.js
   validation.js
 services/
   participantService.js
@@ -100,7 +100,6 @@ Stores participant login records.
 | `id` | Participant UUID |
 | `username` | Participant login username |
 | `password` | Participant login password/code |
-| `study_code` | Study identifier |
 | `active` | Whether the participant can log in |
 | `created_at` | Record creation timestamp |
 
@@ -132,7 +131,6 @@ The schema inserts one testing participant:
 ```text
 Username: participant01
 Password: sleepdemo
-Study code: CSD-DEMO-2026
 ```
 
 For a real study, replace this with your own participants in the `participants` table.
@@ -223,7 +221,7 @@ Recommended production improvements include:
 The diary questions are defined in:
 
 ```text
-library/schematic.js
+library/diarySchema.js
 ```
 
 Each schema item controls the question label, direction, input type and validation limits. The diary workflow reads this schema and renders the correct input component through `QuestionLoader.jsx`.
