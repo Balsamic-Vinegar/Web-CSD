@@ -143,16 +143,39 @@ Open:
 config/database.js
 ```
 
-Set the data provider to Supabase and enter your project details:
+## Configure the application
+
+Open:
+
+```text
+config/database.js
+```
+
+Update the following values:
 
 ```javascript
 export const database = {
     dataProvider: "supabase",
-    supabaseUrl: "https://your-project.supabase.co",
-    supabasePublishableKey: "your-supabase-publishable-key",
+    supabaseID: "...",
+    supabasePublishableKey: "...",
 }
 ```
 
+### Supabase Project ID
+
+Copy the **Project ID** from:
+
+**Project Settings → General**
+
+### Supabase Publishable Key
+
+Copy the **Publishable Key** from:
+
+**Project Settings → API Keys**
+
+> **Important:** Use the **Publishable Key**, **not** the Secret Key.
+
+Once configured, save the file and restart the development server.
 Save the file and restart the development server.
 
 ### 5. Test the connection

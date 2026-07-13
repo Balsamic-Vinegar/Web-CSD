@@ -6,6 +6,6 @@
 
 export const database = {
     dataProvider: "local", // change to "supabase" when connected
-    supabaseUrl: "PASTE_SUPABASE_PROJECT_URL_HERE",
-    supabasePublishableKey: "PASTE_SUPABASE_ANON_KEY_HERE",
+    supabaseID: "PASTE_SUPABASE_PROJECT_ID_HERE",
+    supabasePublishableKey: "PASTE_SUPABASE_PUBLISHABLE_KEY_HERE",
 }
